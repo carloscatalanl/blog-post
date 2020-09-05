@@ -5,16 +5,21 @@
 {% endblock head %}
 
 {% block body %}
+    <div class='m-2'>
+    
+    <h1>Last Posts</h1><br><br>
 
     {% for post in object_list %}
         <h2>{{ post.author }}</h2>
-        <p>{{ post.email }}</p>
-        <p>{{ post.date }}</p>
-        <h4>{{ post.content }}</h4>
+        <small>{{ post.email }} / {{ post.date }}</small>
+        <br><br>
+        <p>{{ post.content|linebreaks }}</p> 
         <br>
         <a href="/post_update/{{ post.id }}"><button class='btn btn-primary'>Edit</button></a>
         <a href="/post_delete/{{ post.id }}"><button class='btn btn-danger'>Delete</button></a>
         <br><br><br><br>
     {% endfor %}    
+    
+    </div>
 
 {% endblock body %}

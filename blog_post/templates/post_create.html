@@ -5,13 +5,23 @@
 {% endblock head %}
 
 {% block body %}
-
-    <div>
+    <div class='ml-2'>
+    
+        <h1>Create a new Post</h1> <br>
+    
         <form method='POST'>
             {% csrf_token %}
-            {{ form.as_p }}
+            <label>Author:</label><br>
+            {{ form.author }} <br><br>
+            <label>E-mail:</label><br>
+            {{ form.email }} <br><br>
+            <label>Content:</label><br>
+            {{ form.content }} <br><br>
             <button type="submit" class='btn btn-primary'>Create Post</button>
         </form>
+
     </div>
+
+
     
 {% endblock body %}
