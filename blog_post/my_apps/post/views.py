@@ -3,6 +3,8 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Post
 from .forms import PostForm
+from django.http import HttpResponseRedirect
+
 
 class PostListView(ListView):
     model = Post
@@ -24,6 +26,3 @@ class PostDeleteView(DeleteView):
     model = Post
     template_name = "post_delete.html"
     success_url = reverse_lazy('post_list')
-
-
-

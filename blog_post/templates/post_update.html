@@ -4,11 +4,20 @@
 {% endblock head %}
 
 {% block body %}
+    <div class='ml-2'>
 
-    <form method='POST'>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class='btn btn-primary'>Edit Post</button>
-    </form>
+        <!--Form-->
+        <form method='POST'>
+                {% csrf_token %}
+                <label>Author:</label><br>
+                {{ form.author }} <br><br>
+                <label>E-mail:</label><br>
+                {{ form.email }} <br><br>
+                <label>Content:</label><br>
+                {{ form.content }} <br><br>
+                <button type="submit" class='btn btn-primary'>Edit Post</button>
+        </form>
+        
+    </div>
 
 {% endblock body %}
