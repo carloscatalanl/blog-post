@@ -3,13 +3,20 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Post
 from .forms import PostForm
-from django.http import HttpResponseRedirect
 
 
 class PostListView(ListView):
     model = Post
     template_name = "post_list.html"
-
+    
+    # Traduce None (email) value
+    def get_queryset(self):
+        queryset = super(PostListView, self).get_queryset()
+        for obj in queryset:
+            if obj.email == None:
+                obj.email = 'No e-mail'
+        return queryset
+    
 class PostCreateView(CreateView):
     model = Post
     template_name = "post_create.html"

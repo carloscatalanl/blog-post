@@ -12,6 +12,8 @@
         <!--Form-->
         <form method='POST'>
             {% csrf_token %}
+            <label>Title:</label><br>
+            {{ form.title }} <br><br>
             <label>Author:</label><br>
             {{ form.author }} <br><br>
             <label>E-mail:</label><br>
